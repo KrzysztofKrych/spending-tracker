@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+html, body, p{
+    margin: 0;
+    padding: 0;
+}
+$text-primary: #323638;
+$text-secondary: #64686A;
+$txt-white: white;
+
+$bg-primary: #F6FAFC;
+$bg-white: white;
+
+$border: rgba(50, 54, 56, 0.15);
