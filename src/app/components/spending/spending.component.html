@@ -14,4 +14,18 @@
         <span>Balance</span>
         <span>{{spending.balance}}</span>
     </div>
+    <div class="actions">
+        <div class="button-container">
+            <app-button 
+                iconLeft="fas fa-plus" 
+                (btnClickEmt)="addIncome($event)"
+                text="Add Income"></app-button>
+        </div>
+        <div class="button-container">
+            <app-button 
+                iconLeft="fas fa-plus" 
+                (btnClickEmt)="addExpense($event)" 
+                text="Add Expense"></app-button>
+        </div>
+    </div>
 </div>

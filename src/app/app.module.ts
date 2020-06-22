@@ -12,6 +12,7 @@ import { SpendingComponent } from './components/spending/spending.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { AccountsComponent } from './components/accounts/accounts.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
     SpendingComponent,
     CategoriesComponent,
     AccountsComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

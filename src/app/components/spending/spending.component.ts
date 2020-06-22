@@ -16,5 +16,10 @@ export class SpendingComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  addIncome(event){
+    console.log(event)
+  }
+  addExpense(event){
+    console.log(event)
+  }
 }
