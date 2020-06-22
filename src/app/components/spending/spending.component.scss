@@ -1,0 +1,14 @@
+.progress-bar-container, .spending-body{
+    max-width: 60%;
+    margin: auto;
+    margin-top: 1rem;
+}
+.spending-body{
+    display: flex;
+    flex-direction: column;
+    .row{
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+}

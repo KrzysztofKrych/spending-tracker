@@ -2,6 +2,7 @@
 html, body, p{
     margin: 0;
     padding: 0;
+    font-family: 'Roboto';
 }
 $text-primary: #323638;
 $text-secondary: #64686A;
@@ -14,3 +15,11 @@ $danger: #d9534f;
 $success: #5cb85c;
 $warning: #f0ad4e;
 $border: rgba(50, 54, 56, 0.15);
+
+.success{
+    color: $success;
+}
+
+.danger{
+    color: $danger;
+}

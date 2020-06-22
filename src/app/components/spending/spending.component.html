@@ -1,3 +1,13 @@
-<div>
+<div class="progress-bar-container">
     <app-progress-bar [income]="spending.income" [expense]="spending.expense"></app-progress-bar>
+</div>
+<div class="spending-body">
+    <div class="row success">
+        <span>Income</span>
+        <span>{{spending.income}}</span>
+    </div>
+    <div class="row danger">
+        <span>Expense</span>
+        <span>{{spending.expense}}</span>
+    </div>
 </div>
