@@ -1,14 +1,18 @@
-.progress-bar-container, .spending-body{
+@import '../../../styles.scss';
+.progress-bar-container, .spending-body {
     max-width: 60%;
     margin: auto;
     margin-top: 1rem;
 }
-.spending-body{
+.spending-body {
     display: flex;
     flex-direction: column;
-    .row{
+    .row {
         padding: 1rem;
         display: flex;
         justify-content: space-between;
+        &.balance {
+            border-top: 2px solid $border;
+        }
     }
 }

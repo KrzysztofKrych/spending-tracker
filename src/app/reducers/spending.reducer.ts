@@ -6,7 +6,7 @@ import * as SpendingActions  from '../actions/spending.actions';
 const initialState: Spending = {
     income: 50,
     expense: 20,
-    balance: 0
+    balance: 30
 }
 
 const spendingReducer = (state: Spending = initialState, action: SpendingActions.Actions) => {

@@ -14,7 +14,12 @@ $bg-white: white;
 $danger: #d9534f;
 $success: #5cb85c;
 $warning: #f0ad4e;
+$primary: #0275d8;
 $border: rgba(50, 54, 56, 0.15);
+
+.primary {
+   color: $primary;
+}
 
 .success{
     color: $success;
