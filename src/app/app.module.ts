@@ -11,6 +11,7 @@ import { TransactionsComponent } from './components/transactions/transactions.co
 import { SpendingComponent } from './components/spending/spending.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { AccountsComponent } from './components/accounts/accounts.component';
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AccountsComponent } from './components/accounts/accounts.component';
     TransactionsComponent,
     SpendingComponent,
     CategoriesComponent,
-    AccountsComponent
+    AccountsComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
