@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AppState } from 'src/app/app.state';
+import { Store } from '@ngrx/store';
+import { Spending } from 'src/app/modules/spending.module';
 
 @Component({
   selector: 'app-spending',
@@ -6,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./spending.component.scss']
 })
 export class SpendingComponent implements OnInit {
-
-  constructor() { }
+  spending: Spending;
+  constructor(private store: Store<AppState>) { 
+    this.store.select('spending').subscribe(spending => this.spending = spending )
+  }
 
   ngOnInit(): void {
   }

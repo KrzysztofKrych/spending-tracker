@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.state';
 
 @Component({
   selector: 'app-progress-bar',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgressBarComponent implements OnInit {
 
-  constructor() { }
-
+  @Input() income: number;
+  @Input() expense: number;
+  incomeWidth: number;
+  expenseWidth: number;
+  constructor() {}
   ngOnInit(): void {
+    this.incomeWidth = this.income / (this.income + this.expense) * 100;
+    this.expenseWidth = this.expense / (this.income + this.expense) * 100;
   }
 
 }

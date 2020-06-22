@@ -4,8 +4,8 @@ import { Spending } from '../modules/spending.module';
 import * as SpendingActions  from '../actions/spending.actions';
 
 const initialState: Spending = {
-    income:0,
-    expense:0,
+    income: 50,
+    expense: 20,
     balance: 0
 }
 
