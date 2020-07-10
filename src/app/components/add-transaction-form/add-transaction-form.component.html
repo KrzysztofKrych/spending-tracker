@@ -1,0 +1,29 @@
+<form>
+    <div class="header">
+        Transaction Details
+    </div>
+    <div class="details-container">
+        <div class="row">
+            <div>Date</div>
+            <div>actualDate</div>
+        </div>
+        <div class="row">
+            <div>Category</div>
+            <div>choose category</div>
+        </div>
+        <div class="row">
+            <div>Amount</div>
+            <div>choose category</div>
+        </div>
+        <div class="actions">
+            <app-button
+                (btnClickEmt)="handleSave()"
+                text="Save" 
+                className="primary-btn"></app-button>
+            <app-button
+                (btnClickEmt)="handleClose()"
+                text="Close" 
+                className="danger-btn"></app-button>
+        </div>
+    </div>
+</form>

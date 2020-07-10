@@ -1,5 +1,5 @@
 <div class="main-menu-container">
-    <div *ngFor="let item of menu">
+    <div *ngFor="let item of menu" (click)="navigate(item.name)">
         {{item.name}}
     </div>
 </div>

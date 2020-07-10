@@ -1,0 +1,37 @@
+<div class="progress-bar-container">
+    <app-progress-bar [income]="spending.income" [expense]="spending.expense"></app-progress-bar>
+</div>
+<div class="spending-body">
+    <div class="row success">
+        <span>Income</span>
+        <span>{{spending.income}}</span>
+    </div>
+    <div class="row danger">
+        <span>Expense</span>
+        <span>{{spending.expense}}</span>
+    </div>
+    <div class="row primary balance">
+        <span>Balance</span>
+        <span>{{spending.balance}}</span>
+    </div>
+    <div class="actions">
+        <div class="button-container">
+            <app-button 
+                iconLeft="fas fa-plus" 
+                (btnClickEmt)="addIncome($event)"
+                text="Add Income"></app-button>
+        </div>
+        <div class="button-container">
+            <app-button 
+                iconLeft="fas fa-plus" 
+                (btnClickEmt)="addExpense($event)" 
+                text="Add Expense"></app-button>
+        </div>
+    </div>
+    <div class="add-transaction-container">
+        <app-add-transaction-form 
+        *ngIf="showForm" 
+        (onClose)="handleCloseForm()"
+        (onSave)="handleSaveForm()"></app-add-transaction-form>
+    </div>
+</div>

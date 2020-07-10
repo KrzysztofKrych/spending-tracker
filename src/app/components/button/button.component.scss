@@ -1,0 +1,23 @@
+@import '../../../styles.scss';
+button {
+    border: 1px solid $border;
+    cursor: pointer;
+    padding: 0.5rem;
+    background-color: white;
+    outline: none;
+    transition: background-color .3s;
+    &.primary-btn{
+        background-color: $primary;
+        color: #fff;
+        &:hover{
+            background-color: $primary-hover;
+        }
+    }
+    &.danger-btn{
+        background-color: $danger;
+        color: #fff;
+        &:hover{
+            background-color: $danger-hover;
+        }
+    }
+}

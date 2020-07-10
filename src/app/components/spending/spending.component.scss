@@ -1,0 +1,29 @@
+@import '../../../styles.scss';
+.progress-bar-container, .spending-body {
+    max-width: 60%;
+    margin: auto;
+    margin-top: 1rem;
+}
+.spending-body {
+    display: flex;
+    flex-direction: column;
+    .row {
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        &.balance {
+            border-top: 2px solid $border;
+        }
+    }
+    .actions{
+        display: flex;
+        justify-content: center;
+        > * {
+            margin: 0.5rem;
+        }
+    }
+    .add-transaction-container{
+        max-width: 60%;
+        margin: auto;
+    }
+}

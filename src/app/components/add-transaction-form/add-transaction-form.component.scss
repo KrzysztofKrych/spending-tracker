@@ -1,0 +1,24 @@
+@import '../../../styles.scss';
+.header{
+    text-align: center;
+}
+.details-container{
+    display: flex;
+    flex-direction: column;
+    .row{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        > * {
+            padding: 1rem;
+            border: 1px solid $border;
+        }
+    }
+    .actions{
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        > *  {
+            margin: 0 .5rem;
+        }
+    }
+}
