@@ -10,16 +10,23 @@ import { Spending } from 'src/app/modules/spending.module';
 })
 export class SpendingComponent implements OnInit {
   spending: Spending;
+  showForm: boolean;
   constructor(private store: Store<AppState>) { 
-    this.store.select('spending').subscribe(spending => this.spending = spending )
+    this.store.select('spending').subscribe(spending => this.spending = spending);
   }
 
   ngOnInit(): void {
   }
-  addIncome(event){
-    console.log(event)
+  addIncome(event: MouseEvent){
+    this.showForm = true;
   }
-  addExpense(event){
-    console.log(event)
+  addExpense(event: MouseEvent){
+    this.showForm = true;
+  }
+  handleCloseForm(){
+    this.showForm = false;
+  }
+  handleSaveForm(){
+    this.showForm = false;
   }
 }

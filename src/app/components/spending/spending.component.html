@@ -28,4 +28,10 @@
                 text="Add Expense"></app-button>
         </div>
     </div>
+    <div class="add-transaction-container">
+        <app-add-transaction-form 
+        *ngIf="showForm" 
+        (onClose)="handleCloseForm()"
+        (onSave)="handleSaveForm()"></app-add-transaction-form>
+    </div>
 </div>

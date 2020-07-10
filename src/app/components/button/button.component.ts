@@ -9,6 +9,7 @@ export class ButtonComponent implements OnInit {
 
   @Input() text: string;
   @Input() iconLeft: string;
+  @Input() className: string = "";
   @Output() btnClickEmt = new EventEmitter<MouseEvent>();
   
   constructor() { }
