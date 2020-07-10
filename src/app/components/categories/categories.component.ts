@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
-
+  switcherOptions = [{name: "Expense"},{name: "Income"}];
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  handleChangeCategoryType(name: string){
+    console.log(name)
   }
 
 }

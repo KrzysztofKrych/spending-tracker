@@ -14,6 +14,7 @@ import { AccountsComponent } from './components/accounts/accounts.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { ButtonComponent } from './components/button/button.component';
 import { AddTransactionFormComponent } from './components/add-transaction-form/add-transaction-form.component';
+import { SwitcherComponent } from './components/switcher/switcher.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AddTransactionFormComponent } from './components/add-transaction-form/a
     ProgressBarComponent,
     ButtonComponent,
     AddTransactionFormComponent,
+    SwitcherComponent,
   ],
   imports: [
     BrowserModule,

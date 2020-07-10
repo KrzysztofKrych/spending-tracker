@@ -1,1 +1,6 @@
-<p>categories works!</p>
+<div class="categories-switcher-container">
+    <app-switcher 
+        [options]="switcherOptions" 
+        selectedOptionName="Expense"
+        (onChange)="handleChangeCategoryType($event)"></app-switcher>
+</div>
