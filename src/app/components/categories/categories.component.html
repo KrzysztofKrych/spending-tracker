@@ -4,3 +4,8 @@
         selectedOptionName="Expense"
         (onChange)="handleChangeCategoryType($event)"></app-switcher>
 </div>
+<div class="categories-container">
+    <div *ngFor="let categorie of filtredCategories">
+        {{categorie.name}}
+    </div>
+</div>

@@ -10,7 +10,7 @@ export class SwitcherComponent implements OnInit {
 
   @Input() options: Option[];
   @Input() selectedOptionName: string;
-  @Output() onChange = new EventEmitter<string>();
+  @Output() onChange = new EventEmitter<{name: string, key: any}>();
   activeLabel: string;
   constructor() { };
 
@@ -18,10 +18,10 @@ export class SwitcherComponent implements OnInit {
     this.activeLabel = this.selectedOptionName;
   }
 
-  toggleActiveLabel(name: string){
+  toggleActiveLabel(name: string, key: any){
     if(this.activeLabel !== name){
       this.activeLabel = name;
-      this.onChange.emit(name);
+      this.onChange.emit({name, key});
     }
   }
 

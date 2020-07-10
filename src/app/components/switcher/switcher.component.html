@@ -2,7 +2,7 @@
 <div class="switcher-container">
     <div *ngFor="let option of options" 
         [ngClass]="{'active': option.name === activeLabel}" 
-        (click)="toggleActiveLabel(option.name)">
+        (click)="toggleActiveLabel(option.name, option.key)">
         {{option.name}}
     </div>
 </div>

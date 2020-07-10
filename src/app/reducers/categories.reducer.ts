@@ -6,8 +6,13 @@ import { TransactionType } from '../modules/transactionType';
 
 const initialState: Categorie[] = [{
     id: "1",
-    name: "testName",
+    name: "ExpensetempNAme",
     type: TransactionType.EXPENSE
+},
+{
+    id: "2",
+    name: "IncometempNAme",
+    type: TransactionType.INCOME
 }]
 
 const categoriesReducer = (state: Categorie[] = initialState, action: CategoriesActions.Actions) => {

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AppState } from 'src/app/app.state';
 import { Store } from '@ngrx/store';
 import { Categorie } from 'src/app/modules/categorie.module';
+import { TransactionType } from 'src/app/modules/transactionType';
+import { TransactionsComponent } from '../transactions/transactions.component';
 
 @Component({
   selector: 'app-categories',
@@ -9,18 +11,20 @@ import { Categorie } from 'src/app/modules/categorie.module';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
-  switcherOptions = [{name: "Expense"},{name: "Income"}];
+  switcherOptions = [{name: "Expense", key: TransactionType.EXPENSE},{name: "Income", key: TransactionType.INCOME}];
   categories: Categorie[];
+  filtredCategories: Categorie[];
   constructor(private store: Store<AppState>) { 
     this.store.select('categories').subscribe(categories => this.categories = categories);
   }
 
   ngOnInit(): void {
-    console.log(this.categories)
+    this.filtredCategories = this.categories.filter(categorie => categorie.type === TransactionType.EXPENSE);
   }
 
-  handleChangeCategoryType(name: string){
-    console.log(name)
+  handleChangeCategoryType({name, key}: {name: string, key: TransactionType}){
+    this.filtredCategories = this.categories.filter(categorie => categorie.type === key);
+    console.log(name, key)
   }
 
 }
