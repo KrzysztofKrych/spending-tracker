@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
+import { AngularFireModule } from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
 
 
 // COMPONENTS
@@ -20,7 +22,13 @@ import { SwitcherComponent } from './components/switcher/switcher.component';
 // REDUCERS
 import spendingReducer from './reducers/spending.reducer';
 import categoriesReducer from './reducers/categories.reducer';
+import { firebaseConfig } from './api/firebaseConfig';
+import { InitProvider } from './providers/initPRovider';
 
+
+export function initProviderFactory(provider: InitProvider) {
+  return () => provider.loadSpending();
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,9 +49,12 @@ import categoriesReducer from './reducers/categories.reducer';
     StoreModule.forRoot({
       spending: spendingReducer,
       categories: categoriesReducer
-    })
+    }),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule
   ],
-  providers: [],
+  providers: [InitProvider,
+    { provide: APP_INITIALIZER, useFactory: initProviderFactory, deps: [InitProvider], multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
