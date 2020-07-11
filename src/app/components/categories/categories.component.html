@@ -5,7 +5,7 @@
         (onChange)="handleChangeCategoryType($event)"></app-switcher>
 </div>
 <div class="categories-container">
-    <div *ngFor="let categorie of filtredCategories">
-        {{categorie.name}}
+    <div *ngFor="let category of categories | async | filterCategory: actualType">
+        {{category.name}}
     </div>
 </div>

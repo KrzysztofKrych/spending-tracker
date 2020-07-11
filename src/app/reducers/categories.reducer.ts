@@ -1,35 +1,28 @@
 
 
 import * as CategoriesActions  from '../actions/categories.actions';
-import { Categorie } from '../modules/categorie.module';
-import { TransactionType } from '../modules/transactionType';
+import { Category} from '../modules/category.module';
 
-const initialState: Categorie[] = [{
-    id: "1",
-    name: "ExpensetempNAme",
-    type: TransactionType.EXPENSE
-},
-{
-    id: "2",
-    name: "IncometempNAme",
-    type: TransactionType.INCOME
-}]
+const initialState: Category[] = []
 
-const categoriesReducer = (state: Categorie[] = initialState, action: CategoriesActions.Actions) => {
+const categoriesReducer = (state: Category[] = initialState, action: CategoriesActions.Actions) => {
     switch(action.type){
-        case CategoriesActions.ADD_INCOME_CATEGORIE : {
+        case CategoriesActions.SET_CATEGORIES: {
+            return [...state, ...action.payload]
+        }
+        case CategoriesActions.ADD_INCOME_CATEGORY : {
+            console.log(action)
+            return [...state, {...action.payload}];
+        }
+        case CategoriesActions.ADD_EXPENSE_CATEGORY : {
+            console.log(action)
+            return [...state, {...action.payload}];
+        }
+        case CategoriesActions.REMOVE_INCOME_CATEGORY : {
             console.log(action)
             return state;
         }
-        case CategoriesActions.ADD_EXPENSE_CATEGORIE : {
-            console.log(action)
-            return state;
-        }
-        case CategoriesActions.REMOVE_INCOME_CATEGORIE : {
-            console.log(action)
-            return state;
-        }
-        case CategoriesActions.REMOVE_EXPENSE_CATEGORIE : {
+        case CategoriesActions.REMOVE_EXPENSE_CATEGORY : {
             console.log(action)
             return state;
         }

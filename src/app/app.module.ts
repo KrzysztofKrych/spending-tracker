@@ -23,12 +23,17 @@ import { SwitcherComponent } from './components/switcher/switcher.component';
 import spendingReducer from './reducers/spending.reducer';
 import categoriesReducer from './reducers/categories.reducer';
 import { firebaseConfig } from './api/firebaseConfig';
-import { InitProvider } from './providers/initPRovider';
+import { InitProvider } from './providers/initProvider';
+import { CategoryPipe } from './pipes/categoryPipe';
 
 
 export function initProviderFactory(provider: InitProvider) {
-  return () => provider.loadSpending();
+  return () => {
+    provider.loadSpending();
+    provider.loadCategories();
+  }
 }
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +47,7 @@ export function initProviderFactory(provider: InitProvider) {
     ButtonComponent,
     AddTransactionFormComponent,
     SwitcherComponent,
+    CategoryPipe
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { Spending } from './modules/spending.module';
-import { Categorie } from './modules/categorie.module';
+import { Category } from './modules/category.module';
 
 export interface AppState {
     spending: Spending;
-    categories: Categorie[];
+    categories: Category[];
 }

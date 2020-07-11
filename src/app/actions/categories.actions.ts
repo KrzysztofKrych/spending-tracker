@@ -1,29 +1,38 @@
 import { Action } from "@ngrx/store";
 import { TransactionType } from '../modules/transactionType';
+import { Category} from '../modules/category.module';
 
-export const ADD_INCOME_CATEGORIE = "ADD_INCOME_CATEGORIE";
-export const ADD_EXPENSE_CATEGORIE = "ADD_EXPENSE_CATEGORIE";
-export const REMOVE_INCOME_CATEGORIE = "REMOVE_INCOME_CATEGORIE";
-export const REMOVE_EXPENSE_CATEGORIE = "REMOVE_EXPENSE_CATEGORIE";
+export const SET_CATEGORIES = "SET_CATEGORIES";
+export const ADD_INCOME_CATEGORY = "ADD_INCOME_CATEGORIE";
+export const ADD_EXPENSE_CATEGORY = "ADD_EXPENSE_CATEGORIE";
+export const REMOVE_INCOME_CATEGORY = "REMOVE_INCOME_CATEGORIE";
+export const REMOVE_EXPENSE_CATEGORY = "REMOVE_EXPENSE_CATEGORIE";
 
-export class AddIncomeCategorie implements Action {
-    readonly type = ADD_INCOME_CATEGORIE;
+
+export class setCategories implements Action {
+    readonly type = SET_CATEGORIES;
+    constructor(public payload: Category[]) {}
+}
+
+
+export class AddIncomeCategory implements Action {
+    readonly type = ADD_INCOME_CATEGORY;
     constructor(public payload: {id: string, type: TransactionType}) {}
 }
 
-export class AddExpenseCategorie implements Action {
-    readonly type = ADD_EXPENSE_CATEGORIE;
+export class AddExpenseCategory implements Action {
+    readonly type = ADD_EXPENSE_CATEGORY;
     constructor(public payload: {id: string, type: TransactionType}) {}
 }
 
-export class RemoveIncomeCategorie implements Action {
-    readonly type = REMOVE_INCOME_CATEGORIE;
+export class RemoveIncomeCategory implements Action {
+    readonly type = REMOVE_INCOME_CATEGORY;
     constructor(public payload: {id: string, type: TransactionType}) {}
 }
 
-export class RemoveExpenseCategorie implements Action {
-    readonly type = REMOVE_EXPENSE_CATEGORIE;
+export class RemoveExpenseCategory implements Action {
+    readonly type = REMOVE_EXPENSE_CATEGORY;
     constructor(public payload: {id: string, type: TransactionType}) {}
 }
 
-export type Actions = AddIncomeCategorie | AddExpenseCategorie | RemoveIncomeCategorie | RemoveExpenseCategorie;
+export type Actions = AddIncomeCategory | AddExpenseCategory | RemoveIncomeCategory | RemoveExpenseCategory | setCategories;
