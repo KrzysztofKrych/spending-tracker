@@ -15,14 +15,15 @@ export class CategoriesComponent implements OnInit {
   switcherOptions = [{name: "Expense", key: TransactionType.EXPENSE},{name: "Income", key: TransactionType.INCOME}];
   categories: Observable<Category[]>;
   actualType: TransactionType = TransactionType.EXPENSE;
+  showAddCategorieModal: boolean = false;
   constructor(private store: Store<AppState>) { 
     this.categories = store.select('categories');
   }
 
-
   handleChangeCategoryType({name, key}: {name: string, key: TransactionType}){
     this.actualType = key;
   }
+
   handleAddCategory(category: Category){
     this.store.dispatch(new CategoriesAction.AddExpenseCategory(category));
   }
@@ -30,6 +31,14 @@ export class CategoriesComponent implements OnInit {
   handleChangeCategoryName(event: MouseEvent){
     const element = event.currentTarget as HTMLInputElement;
     console.log(element.value);
+  }
+
+  handleShowModal(){
+    this.showAddCategorieModal = true;
+  }
+
+  handleHideModal(){
+    this.showAddCategorieModal = false;
   }
 
   ngOnInit(): void {

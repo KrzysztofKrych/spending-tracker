@@ -5,11 +5,19 @@
         (onChange)="handleChangeCategoryType($event)"></app-switcher>
 </div>
 <div class="add-categorie container">
-    <app-button text="Add categorie" iconLeft="fas fa-plus" ></app-button>
+    <app-button 
+        text="Add categorie" 
+        iconLeft="fas fa-plus"
+        (btnClickEmt)="handleShowModal()"></app-button>
 </div>
 <div class="categories-container">
     <div class="category" *ngFor="let category of categories | async | filterCategory: actualType">
-        <app-editable-span [value]="category.name" (onBlur)="handleChangeCategoryName($event)"></app-editable-span>
+        <app-editable-span 
+            [value]="category.name" 
+            (onBlur)="handleChangeCategoryName($event)"></app-editable-span>
         <app-button text="Remove"></app-button>
     </div>
 </div>
+<app-modal 
+    *ngIf="showAddCategorieModal" 
+    (onClose)="handleHideModal()"></app-modal>
