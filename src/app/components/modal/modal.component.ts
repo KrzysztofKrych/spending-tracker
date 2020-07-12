@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ElementRef } from '@angular/core';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-modal',
@@ -6,10 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements OnInit {
-
-  constructor() { }
+  @Input() id: string;
+  private element: any;
+  constructor(private modalService: ModalService, private nativeElement: ElementRef) { 
+    this.element = nativeElement.nativeElement;
+  }
 
   ngOnInit(): void {
+    if (!this.id) return;
+    document.body.appendChild(this.element);
+    this.modalService.add(this);
+  }
+  ngOnDestroy(): void {
+    this.modalService.remove(this.id);
+    this.element.remove();
+  }
+  open(): void {
+    this.element.style.display = 'block';
+  }
+
+  close(): void {
+    this.element.style.display = 'none';
   }
 
 }

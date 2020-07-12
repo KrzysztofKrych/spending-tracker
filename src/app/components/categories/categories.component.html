@@ -8,7 +8,7 @@
     <app-button 
         text="Add categorie" 
         iconLeft="fas fa-plus"
-        (btnClickEmt)="handleShowModal()"></app-button>
+        (btnClickEmt)="handleShowModal('add-categorie-modal')"></app-button>
 </div>
 <div class="categories-container">
     <div class="category" *ngFor="let category of categories | async | filterCategory: actualType">
@@ -19,5 +19,5 @@
     </div>
 </div>
 <app-modal 
-    *ngIf="showAddCategorieModal" 
-    (onClose)="handleHideModal()"></app-modal>
+    (onClose)="handleHideModal()"
+    id="add-categorie-modal"></app-modal>

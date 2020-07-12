@@ -5,6 +5,7 @@ import { Category } from 'src/app/modules/category.module';
 import { TransactionType } from 'src/app/modules/transactionType';
 import * as CategoriesAction from "../../actions/categories.actions";
 import { Observable } from 'rxjs';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-categories',
@@ -15,8 +16,7 @@ export class CategoriesComponent implements OnInit {
   switcherOptions = [{name: "Expense", key: TransactionType.EXPENSE},{name: "Income", key: TransactionType.INCOME}];
   categories: Observable<Category[]>;
   actualType: TransactionType = TransactionType.EXPENSE;
-  showAddCategorieModal: boolean = false;
-  constructor(private store: Store<AppState>) { 
+  constructor(private store: Store<AppState>, private modalService: ModalService) { 
     this.categories = store.select('categories');
   }
 
@@ -33,12 +33,11 @@ export class CategoriesComponent implements OnInit {
     console.log(element.value);
   }
 
-  handleShowModal(){
-    this.showAddCategorieModal = true;
+  handleShowModal(id: string){
+    this.modalService.open(id);
   }
 
   handleHideModal(){
-    this.showAddCategorieModal = false;
   }
 
   ngOnInit(): void {

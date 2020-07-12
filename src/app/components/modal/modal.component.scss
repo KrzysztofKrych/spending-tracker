@@ -1,6 +1,6 @@
-.modal{
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+:host{
+    display: none;
+    .modal{
+        position: absolute;
+    }
 }
