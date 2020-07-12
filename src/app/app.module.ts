@@ -25,6 +25,8 @@ import categoriesReducer from './reducers/categories.reducer';
 import { firebaseConfig } from './api/firebaseConfig';
 import { InitProvider } from './providers/initProvider';
 import { CategoryPipe } from './pipes/categoryPipe';
+import { InputComponent } from './components/input/input.component';
+import { EditableSpanComponent } from './components/editable-span/editable-span.component';
 
 
 export function initProviderFactory(provider: InitProvider) {
@@ -47,7 +49,9 @@ export function initProviderFactory(provider: InitProvider) {
     ButtonComponent,
     AddTransactionFormComponent,
     SwitcherComponent,
-    CategoryPipe
+    CategoryPipe,
+    InputComponent,
+    EditableSpanComponent
   ],
   imports: [
     BrowserModule,

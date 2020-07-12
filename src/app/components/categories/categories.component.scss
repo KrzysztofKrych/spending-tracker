@@ -2,3 +2,11 @@
     display: flex;
     justify-content: center;
 }
+.categories-container{
+    margin: auto;
+    max-width: 80%;
+    .category{
+        display: flex;
+        justify-content: space-between;
+    }
+}

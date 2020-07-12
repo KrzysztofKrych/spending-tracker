@@ -26,6 +26,11 @@ export class CategoriesComponent implements OnInit {
   handleAddCategory(category: Category){
     this.store.dispatch(new CategoriesAction.AddExpenseCategory(category));
   }
+  
+  handleChangeCategoryName(event: MouseEvent){
+    const element = event.currentTarget as HTMLInputElement;
+    console.log(element.value);
+  }
 
   ngOnInit(): void {
   }

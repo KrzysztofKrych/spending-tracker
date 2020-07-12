@@ -1,0 +1,6 @@
+<span *ngIf="!isEdit" (click)="handleShowInput()">{{value}}</span>
+<app-input 
+    *ngIf="isEdit" 
+    (onBlur)="handleHideInput($event)" 
+    [defaultAutoFocus]="true" 
+    [value]="value"></app-input>

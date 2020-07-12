@@ -5,7 +5,8 @@
         (onChange)="handleChangeCategoryType($event)"></app-switcher>
 </div>
 <div class="categories-container">
-    <div *ngFor="let category of categories | async | filterCategory: actualType">
-        {{category.name}}
+    <div class="category" *ngFor="let category of categories | async | filterCategory: actualType">
+        <app-editable-span [value]="category.name" (onBlur)="handleChangeCategoryName($event)"></app-editable-span>
+        <div>Remove</div>
     </div>
 </div>
