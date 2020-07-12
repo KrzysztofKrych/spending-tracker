@@ -1,6 +1,7 @@
 import { TransactionType } from './transactionType';
 
-export interface Categorie {
+export interface Category {
+    id: string;
     name: string;
     type: TransactionType;
 }

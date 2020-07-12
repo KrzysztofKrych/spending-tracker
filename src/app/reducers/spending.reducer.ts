@@ -4,13 +4,17 @@ import { Spending } from '../modules/spending.module';
 import * as SpendingActions  from '../actions/spending.actions';
 
 const initialState: Spending = {
-    income: 50,
-    expense: 20,
-    balance: 30
+    income: 0,
+    expense: 0,
+    balance: 0,
+    id: ""
 }
 
 const spendingReducer = (state: Spending = initialState, action: SpendingActions.Actions) => {
     switch(action.type){
+        case SpendingActions.SET_SPENDING_DATA: {
+            return {...state, ...action.payload};
+        }
         case SpendingActions.ADD_INCOME: {
             return {
                 ...state,

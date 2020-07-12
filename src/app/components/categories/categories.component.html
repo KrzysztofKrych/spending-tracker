@@ -1,1 +1,15 @@
-<p>categories works!</p>
+<div class="categories-switcher-container">
+    <app-switcher 
+        [options]="switcherOptions" 
+        selectedOptionName="Expense"
+        (onChange)="handleChangeCategoryType($event)"></app-switcher>
+</div>
+<div class="add-categorie container">
+    <app-button text="Add categorie" iconLeft="fas fa-plus" ></app-button>
+</div>
+<div class="categories-container">
+    <div class="category" *ngFor="let category of categories | async | filterCategory: actualType">
+        <app-editable-span [value]="category.name" (onBlur)="handleChangeCategoryName($event)"></app-editable-span>
+        <app-button text="Remove"></app-button>
+    </div>
+</div>

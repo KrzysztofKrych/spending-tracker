@@ -1,0 +1,18 @@
+@import '../../../styles.scss';
+.switcher-container{
+    display: flex;
+    background-color: $bg-primary;
+    border-radius: 3px;
+    :first-child{
+        border-right: none;
+    }
+    .active{
+        background-color: $primary;
+        color: #fff;
+    }
+    > * {
+        border: 1px solid $border;
+        cursor: pointer;
+        padding: .5rem;
+    }
+}
