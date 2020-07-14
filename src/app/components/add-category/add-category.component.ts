@@ -19,13 +19,15 @@ export class AddCategoryComponent implements OnInit {
 
   handleSave(event: MouseEvent){
     this.onSave.emit({event, name: this.newCategoryName});
+    this.handleClose(event);
   }
 
   handleClose(event: MouseEvent){
+    this.newCategoryName = ""
     this.onClose.emit(event);
   }
-  setNewCategoryName(event: MouseEvent){
-    this.newCategoryName = event.target && (event.target as HTMLInputElement).value;
+  setNewCategoryName(name: string){
+    this.newCategoryName = name;
   }
 
 }

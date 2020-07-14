@@ -3,5 +3,6 @@
     type="type" 
     [value]="value"
     #inputRef
-    (change)="handleChange($event)" 
+    [(ngModel)]="value"
+    (ngModelChange)="handleChange($event)" 
     (blur)="handleBlur($event)" />
