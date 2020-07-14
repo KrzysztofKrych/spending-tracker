@@ -14,4 +14,10 @@ export class CategoriesMiddleware {
             this.store.dispatch(new CategoriesActions.setCategories(categories as Category[]))
         }
     }
+    async addCategory(category: Category){
+        const addedCategory = await this.repository.addCategory(category);
+        if(addedCategory){
+            this.store.dispatch(new CategoriesActions.AddCategory(addedCategory));
+        }
+    }
 }

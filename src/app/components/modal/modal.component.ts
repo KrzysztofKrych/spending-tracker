@@ -13,7 +13,6 @@ export class ModalComponent implements OnInit {
   private element: any;
   private rootElement: any;
   constructor(private modalService: ModalService, private nativeElement: ElementRef) { 
-    console.log(nativeElement)
     this.element = nativeElement.nativeElement;
     this.rootElement = document.querySelector('.root');
   }

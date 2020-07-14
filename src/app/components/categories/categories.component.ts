@@ -6,6 +6,8 @@ import { TransactionType } from 'src/app/modules/transactionType';
 import * as CategoriesAction from "../../actions/categories.actions";
 import { Observable } from 'rxjs';
 import { ModalService } from 'src/app/services/modal.service';
+import { CategoriesMiddleware } from 'src/app/middleware/categories.middleware';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-categories',
@@ -16,7 +18,8 @@ export class CategoriesComponent implements OnInit {
   switcherOptions = [{name: "Expense", key: TransactionType.EXPENSE},{name: "Income", key: TransactionType.INCOME}];
   categories: Observable<Category[]>;
   actualType: TransactionType = TransactionType.EXPENSE;
-  constructor(private store: Store<AppState>, private modalService: ModalService) { 
+  categoriesMiddleware = new CategoriesMiddleware(this.firestore, this.store);
+  constructor(private store: Store<AppState>, private modalService: ModalService, private firestore: AngularFirestore) { 
     this.categories = store.select('categories');
   }
 
@@ -30,7 +33,7 @@ export class CategoriesComponent implements OnInit {
       id: String(Date.now()),
       type: this.actualType
     }
-    this.store.dispatch(new CategoriesAction.AddExpenseCategory(category));
+    this.categoriesMiddleware.addCategory(category)
   }
   
   handleChangeCategoryName(event: MouseEvent){
