@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, Output, EventEmitter, ViewChild } from '@angular/core';
 import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
@@ -8,9 +8,14 @@ import { ModalService } from 'src/app/services/modal.service';
 })
 export class ModalComponent implements OnInit {
   @Input() id: string;
+  @Output() onClose = new EventEmitter<MouseEvent>();
+  @ViewChild('modal') modalRef:ElementRef;
   private element: any;
+  private rootElement: any;
   constructor(private modalService: ModalService, private nativeElement: ElementRef) { 
+    console.log(nativeElement)
     this.element = nativeElement.nativeElement;
+    this.rootElement = document.querySelector('.root');
   }
 
   ngOnInit(): void {
@@ -23,11 +28,17 @@ export class ModalComponent implements OnInit {
     this.element.remove();
   }
   open(): void {
-    this.element.style.display = 'block';
+    this.element.style.display = 'flex';
+    this.rootElement.style.filter = 'blur(2px) grayscale(50%)';
+    this.modalRef.nativeElement.focus()
   }
 
   close(): void {
     this.element.style.display = 'none';
+    this.rootElement.style.filter = 'none';
   }
 
+  handleClose(event: MouseEvent){
+    this.onClose.emit(event);
+  }
 }

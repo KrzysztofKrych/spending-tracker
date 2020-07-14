@@ -28,6 +28,7 @@ import { CategoryPipe } from './pipes/categoryPipe';
 import { InputComponent } from './components/input/input.component';
 import { EditableSpanComponent } from './components/editable-span/editable-span.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { AddCategoryComponent } from './components/add-category/add-category.component';
 
 
 export function initProviderFactory(provider: InitProvider) {
@@ -53,7 +54,8 @@ export function initProviderFactory(provider: InitProvider) {
     CategoryPipe,
     InputComponent,
     EditableSpanComponent,
-    ModalComponent
+    ModalComponent,
+    AddCategoryComponent
   ],
   imports: [
     BrowserModule,

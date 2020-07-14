@@ -1,0 +1,21 @@
+@import '../../../styles.scss';
+.add-category{
+    background: $bg-dark;
+    color: $txt-dark;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 3px;
+    > * {
+        padding: .5rem;
+    }
+    .actions{
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+:host ::ng-deep input{
+    background: $bg-darker;
+    color: $txt-dark
+}

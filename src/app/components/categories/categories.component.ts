@@ -24,20 +24,25 @@ export class CategoriesComponent implements OnInit {
     this.actualType = key;
   }
 
-  handleAddCategory(category: Category){
+  handleAddCategory({event, name}: {event: MouseEvent, name: string}){
+    const category = {
+      name,
+      id: String(Date.now()),
+      type: this.actualType
+    }
     this.store.dispatch(new CategoriesAction.AddExpenseCategory(category));
   }
   
   handleChangeCategoryName(event: MouseEvent){
     const element = event.currentTarget as HTMLInputElement;
-    console.log(element.value);
   }
 
   handleShowModal(id: string){
     this.modalService.open(id);
   }
 
-  handleHideModal(){
+  handleHideModal(id: string){
+    this.modalService.close(id);
   }
 
   ngOnInit(): void {

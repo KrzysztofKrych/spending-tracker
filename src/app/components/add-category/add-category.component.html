@@ -1,0 +1,14 @@
+<div class="add-category">
+    <span>Type new {{type.toLowerCase()}} category:</span>
+    <app-input type="text" [value]="newCategoryName" (onBlur)="setNewCategoryName($event)"></app-input>
+    <div class="actions">
+        <app-button 
+            text="Save" 
+            className="primary-btn" 
+            (btnClickEmt)="handleSave($event)"></app-button>
+        <app-button 
+            text="Cancel" 
+            className="danger-btn" 
+            (btnClickEmt)="handleClose($event)"></app-button>
+    </div>
+</div>
