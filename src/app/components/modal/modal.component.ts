@@ -9,7 +9,6 @@ import { ModalService } from 'src/app/services/modal.service';
 export class ModalComponent implements OnInit {
   @Input() id: string;
   @Output() onClose = new EventEmitter<MouseEvent>();
-  @ViewChild('modal') modalRef:ElementRef;
   private element: any;
   private rootElement: any;
   constructor(private modalService: ModalService, private nativeElement: ElementRef) { 
@@ -29,7 +28,6 @@ export class ModalComponent implements OnInit {
   open(): void {
     this.element.style.display = 'flex';
     this.rootElement.style.filter = 'blur(2px) grayscale(50%)';
-    this.modalRef.nativeElement.focus()
   }
 
   close(): void {

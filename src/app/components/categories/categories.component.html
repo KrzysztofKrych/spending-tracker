@@ -15,7 +15,7 @@
         <app-editable-span 
             [value]="category.name" 
             (onBlur)="handleChangeCategoryName($event)"></app-editable-span>
-        <app-button text="Remove"></app-button>
+        <app-button text="Remove" (btnClickEmt)="handleRemoveCategory(category)"></app-button>
     </div>
 </div>
 <app-modal 
@@ -23,6 +23,7 @@
     id="add-categorie-modal">
     <div class="modal-container">
         <app-add-category 
+            *ngIf="isModalOpen"
             [type]="actualType" 
             (onClose)="handleHideModal('add-categorie-modal')"
             (onSave)="handleAddCategory($event)"></app-add-category>

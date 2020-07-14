@@ -20,4 +20,10 @@ export class CategoriesMiddleware {
             this.store.dispatch(new CategoriesActions.AddCategory(addedCategory));
         }
     }
+    async removeCategory(category: Category){
+        const removedId = await this.repository.removeCategory(category.id);
+        if(removedId){
+            this.store.dispatch(new CategoriesActions.RemoveCategory({id: removedId, type: category.type}));
+        }
+    }
 }

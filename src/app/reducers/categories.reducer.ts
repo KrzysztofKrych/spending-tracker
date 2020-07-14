@@ -14,7 +14,8 @@ const categoriesReducer = (state: Category[] = initialState, action: CategoriesA
             return [...state, {...action.payload}];
         }
         case CategoriesActions.REMOVE_CATEGORY : {
-            return state;
+            const { id } = action.payload;
+            return [...state.filter(category => category.id !== id)]
         }
         default: return state;
     }

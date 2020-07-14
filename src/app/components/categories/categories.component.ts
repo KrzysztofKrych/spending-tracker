@@ -3,7 +3,6 @@ import { AppState } from 'src/app/app.state';
 import { Store } from '@ngrx/store';
 import { Category } from 'src/app/modules/category.module';
 import { TransactionType } from 'src/app/modules/transactionType';
-import * as CategoriesAction from "../../actions/categories.actions";
 import { Observable } from 'rxjs';
 import { ModalService } from 'src/app/services/modal.service';
 import { CategoriesMiddleware } from 'src/app/middleware/categories.middleware';
@@ -19,6 +18,7 @@ export class CategoriesComponent implements OnInit {
   categories: Observable<Category[]>;
   actualType: TransactionType = TransactionType.EXPENSE;
   categoriesMiddleware = new CategoriesMiddleware(this.firestore, this.store);
+  isModalOpen: boolean = false;
   constructor(private store: Store<AppState>, private modalService: ModalService, private firestore: AngularFirestore) { 
     this.categories = store.select('categories');
   }
@@ -33,7 +33,11 @@ export class CategoriesComponent implements OnInit {
       id: String(Date.now()),
       type: this.actualType
     }
-    this.categoriesMiddleware.addCategory(category)
+    this.categoriesMiddleware.addCategory(category);
+  }
+
+  handleRemoveCategory(category: Category){
+    this.categoriesMiddleware.removeCategory(category);
   }
   
   handleChangeCategoryName(event: MouseEvent){
@@ -42,10 +46,12 @@ export class CategoriesComponent implements OnInit {
 
   handleShowModal(id: string){
     this.modalService.open(id);
+    this.isModalOpen = true;
   }
 
   handleHideModal(id: string){
     this.modalService.close(id);
+    this.isModalOpen = false;
   }
 
   ngOnInit(): void {

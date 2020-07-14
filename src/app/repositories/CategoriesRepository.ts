@@ -14,8 +14,13 @@ export class CategoriesRepository {
         }) 
     }
     async addCategory(category: Category){
-        return await this.collection.add(category).then(doc => category).catch(error => {
+        return await this.collection.add(category).then(doc => ({...category, id: doc.id})).catch(error => {
             console.log(error);
         });
+    }
+    async removeCategory(id: string){
+        return await this.collection.doc(id).delete().then(doc => id).catch(error => {
+            console.log(error);
+        });;
     }
 }
