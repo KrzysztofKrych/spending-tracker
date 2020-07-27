@@ -2,10 +2,11 @@
 button {
     border: 1px solid $border;
     cursor: pointer;
-    padding: 0.5rem;
+    padding: .5rem .75rem;
     background-color: white;
     outline: none;
     transition: background-color .3s;
+    border-radius: 3px;
     &.primary-btn{
         background-color: $primary;
         color: #fff;
@@ -19,5 +20,9 @@ button {
         &:hover{
             background-color: $danger-hover;
         }
+    }
+    &:disabled,&[disabled]{
+        opacity: .5;
+        pointer-events: none;
     }
 }

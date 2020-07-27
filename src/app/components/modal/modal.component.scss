@@ -1,0 +1,15 @@
+@import '../../../styles.scss';
+:host{
+    display: none;
+    position: absolute;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    .modal{
+        outline: none;
+        border-radius: 3px;
+        border: 1px solid $border;
+    }
+}

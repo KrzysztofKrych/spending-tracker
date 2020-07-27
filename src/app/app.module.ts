@@ -4,6 +4,7 @@ import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { FormsModule } from '@angular/forms';
 
 
 // COMPONENTS
@@ -27,6 +28,8 @@ import { InitProvider } from './providers/initProvider';
 import { CategoryPipe } from './pipes/categoryPipe';
 import { InputComponent } from './components/input/input.component';
 import { EditableSpanComponent } from './components/editable-span/editable-span.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { AddCategoryComponent } from './components/add-category/add-category.component';
 
 
 export function initProviderFactory(provider: InitProvider) {
@@ -51,7 +54,9 @@ export function initProviderFactory(provider: InitProvider) {
     SwitcherComponent,
     CategoryPipe,
     InputComponent,
-    EditableSpanComponent
+    EditableSpanComponent,
+    ModalComponent,
+    AddCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +66,8 @@ export function initProviderFactory(provider: InitProvider) {
       categories: categoriesReducer
     }),
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule
   ],
   providers: [InitProvider,
     { provide: APP_INITIALIZER, useFactory: initProviderFactory, deps: [InitProvider], multi: true }],

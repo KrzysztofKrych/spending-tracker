@@ -3,8 +3,10 @@ import { AppState } from 'src/app/app.state';
 import { Store } from '@ngrx/store';
 import { Category } from 'src/app/modules/category.module';
 import { TransactionType } from 'src/app/modules/transactionType';
-import * as CategoriesAction from "../../actions/categories.actions";
 import { Observable } from 'rxjs';
+import { ModalService } from 'src/app/services/modal.service';
+import { CategoriesMiddleware } from 'src/app/middleware/categories.middleware';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-categories',
@@ -15,21 +17,41 @@ export class CategoriesComponent implements OnInit {
   switcherOptions = [{name: "Expense", key: TransactionType.EXPENSE},{name: "Income", key: TransactionType.INCOME}];
   categories: Observable<Category[]>;
   actualType: TransactionType = TransactionType.EXPENSE;
-  constructor(private store: Store<AppState>) { 
+  categoriesMiddleware = new CategoriesMiddleware(this.firestore, this.store);
+  isModalOpen: boolean = false;
+  constructor(private store: Store<AppState>, private modalService: ModalService, private firestore: AngularFirestore) { 
     this.categories = store.select('categories');
   }
-
 
   handleChangeCategoryType({name, key}: {name: string, key: TransactionType}){
     this.actualType = key;
   }
-  handleAddCategory(category: Category){
-    this.store.dispatch(new CategoriesAction.AddExpenseCategory(category));
+
+  handleAddCategory({event, name}: {event: MouseEvent, name: string}){
+    const category = {
+      name,
+      id: String(Date.now()),
+      type: this.actualType
+    }
+    this.categoriesMiddleware.addCategory(category);
+  }
+
+  handleRemoveCategory(category: Category){
+    this.categoriesMiddleware.removeCategory(category);
   }
   
   handleChangeCategoryName(event: MouseEvent){
     const element = event.currentTarget as HTMLInputElement;
-    console.log(element.value);
+  }
+
+  handleShowModal(id: string){
+    this.modalService.open(id);
+    this.isModalOpen = true;
+  }
+
+  handleHideModal(id: string){
+    this.modalService.close(id);
+    this.isModalOpen = false;
   }
 
   ngOnInit(): void {

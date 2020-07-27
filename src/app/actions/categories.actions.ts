@@ -1,12 +1,10 @@
 import { Action } from "@ngrx/store";
 import { TransactionType } from '../modules/transactionType';
-import { Category} from '../modules/category.module';
+import { Category } from '../modules/category.module';
 
 export const SET_CATEGORIES = "SET_CATEGORIES";
-export const ADD_INCOME_CATEGORY = "ADD_INCOME_CATEGORIE";
-export const ADD_EXPENSE_CATEGORY = "ADD_EXPENSE_CATEGORIE";
-export const REMOVE_INCOME_CATEGORY = "REMOVE_INCOME_CATEGORIE";
-export const REMOVE_EXPENSE_CATEGORY = "REMOVE_EXPENSE_CATEGORIE";
+export const ADD_CATEGORY = "ADD_CATEGORY";
+export const REMOVE_CATEGORY = "REMOVE_CATEGORY";
 
 
 export class setCategories implements Action {
@@ -14,25 +12,15 @@ export class setCategories implements Action {
     constructor(public payload: Category[]) {}
 }
 
-
-export class AddIncomeCategory implements Action {
-    readonly type = ADD_INCOME_CATEGORY;
+export class AddCategory implements Action {
+    readonly type = ADD_CATEGORY;
     constructor(public payload: {id: string, type: TransactionType}) {}
 }
 
-export class AddExpenseCategory implements Action {
-    readonly type = ADD_EXPENSE_CATEGORY;
+export class RemoveCategory implements Action {
+    readonly type = REMOVE_CATEGORY;
     constructor(public payload: {id: string, type: TransactionType}) {}
 }
 
-export class RemoveIncomeCategory implements Action {
-    readonly type = REMOVE_INCOME_CATEGORY;
-    constructor(public payload: {id: string, type: TransactionType}) {}
-}
 
-export class RemoveExpenseCategory implements Action {
-    readonly type = REMOVE_EXPENSE_CATEGORY;
-    constructor(public payload: {id: string, type: TransactionType}) {}
-}
-
-export type Actions = AddIncomeCategory | AddExpenseCategory | RemoveIncomeCategory | RemoveExpenseCategory | setCategories;
+export type Actions = AddCategory | RemoveCategory | setCategories;

@@ -3,5 +3,7 @@
     type="type" 
     [value]="value"
     #inputRef
-    (change)="handleChange($event)" 
+    [(ngModel)]="value"
+    autofocus="defaultAutoFocus"
+    (ngModelChange)="handleChange($event)" 
     (blur)="handleBlur($event)" />

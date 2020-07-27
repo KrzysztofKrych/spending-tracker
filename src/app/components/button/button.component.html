@@ -1,4 +1,4 @@
 
-<button (click)="handleClickButton($event)" [ngClass]="className">
+<button (click)="handleClickButton($event)" [ngClass]="className" [disabled]="disabled">
     <i *ngIf="iconLeft" [ngClass]="iconLeft"></i> {{text}} 
 </button>
