@@ -4,11 +4,11 @@
         selectedOptionName="Expense"
         (onChange)="handleChangeCategoryType($event)"></app-switcher>
 </div>
-<div class="add-categorie container">
+<div class="add-category container">
     <app-button 
-        text="Add categorie" 
+        text="Add category" 
         iconLeft="fas fa-plus"
-        (btnClickEmt)="handleShowModal('add-categorie-modal')"></app-button>
+        (btnClickEmt)="handleShowModal('add-category-modal')"></app-button>
 </div>
 <div class="categories-container">
     <div class="category" *ngFor="let category of categories | async | filterCategory: actualType">
@@ -19,13 +19,13 @@
     </div>
 </div>
 <app-modal 
-    (onClose)="handleHideModal('add-categorie-modal')"
-    id="add-categorie-modal">
+    (onClose)="handleHideModal('add-category-modal')"
+    id="add-category-modal">
     <div class="modal-container">
         <app-add-category 
             *ngIf="isModalOpen"
             [type]="actualType" 
-            (onClose)="handleHideModal('add-categorie-modal')"
+            (onClose)="handleHideModal('add-category-modal')"
             (onSave)="handleAddCategory($event)"></app-add-category>
     </div>
 </app-modal>
