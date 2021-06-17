@@ -8,9 +8,8 @@ describe('EditableSpanComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditableSpanComponent ]
-    })
-    .compileComponents();
+      declarations: [EditableSpanComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

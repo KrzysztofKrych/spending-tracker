@@ -1,17 +1,28 @@
-import { Component, OnInit, Input, ElementRef, Output, EventEmitter, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ElementRef,
+  Output,
+  EventEmitter,
+  ViewChild,
+} from '@angular/core';
 import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss']
+  styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent implements OnInit {
   @Input() id: string;
   @Output() onClose = new EventEmitter<MouseEvent>();
   private element: any;
   private rootElement: any;
-  constructor(private modalService: ModalService, private nativeElement: ElementRef) { 
+  constructor(
+    private modalService: ModalService,
+    private nativeElement: ElementRef
+  ) {
     this.element = nativeElement.nativeElement;
     this.rootElement = document.querySelector('.root');
   }
@@ -35,7 +46,7 @@ export class ModalComponent implements OnInit {
     this.rootElement.style.filter = 'none';
   }
 
-  handleClose(event: MouseEvent){
+  handleClose(event: MouseEvent) {
     this.onClose.emit(event);
   }
 }

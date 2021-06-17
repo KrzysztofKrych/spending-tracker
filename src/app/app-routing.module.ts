@@ -6,17 +6,16 @@ import { SpendingComponent } from './components/spending/spending.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { AccountsComponent } from './components/accounts/accounts.component';
 
-
 const routes: Routes = [
-  {path: '' , component: SpendingComponent},
-  {path: 'spending', redirectTo: '', component: SpendingComponent},
-  {path: 'transactions', component: TransactionsComponent},
-  {path: 'categories', component: CategoriesComponent},
-  {path: 'accounts', component: AccountsComponent},
+  { path: '', component: SpendingComponent },
+  { path: 'spending', redirectTo: '', component: SpendingComponent },
+  { path: 'transactions', component: TransactionsComponent },
+  { path: 'categories', component: CategoriesComponent },
+  { path: 'accounts', component: AccountsComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

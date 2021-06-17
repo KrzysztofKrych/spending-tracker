@@ -8,9 +8,8 @@ describe('AddTransactionFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddTransactionFormComponent ]
-    })
-    .compileComponents();
+      declarations: [AddTransactionFormComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -2,10 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
-import { AngularFireModule } from "@angular/fire";
-import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
-
 
 // COMPONENTS
 import { AppComponent } from './app.component';
@@ -31,12 +30,11 @@ import { EditableSpanComponent } from './components/editable-span/editable-span.
 import { ModalComponent } from './components/modal/modal.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 
-
 export function initProviderFactory(provider: InitProvider) {
   return () => {
     provider.loadSpending();
     provider.loadCategories();
-  }
+  };
 }
 
 @NgModule({
@@ -56,21 +54,28 @@ export function initProviderFactory(provider: InitProvider) {
     InputComponent,
     EditableSpanComponent,
     ModalComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({
       spending: spendingReducer,
-      categories: categoriesReducer
+      categories: categoriesReducer,
     }),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [InitProvider,
-    { provide: APP_INITIALIZER, useFactory: initProviderFactory, deps: [InitProvider], multi: true }],
-  bootstrap: [AppComponent]
+  providers: [
+    InitProvider,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initProviderFactory,
+      deps: [InitProvider],
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

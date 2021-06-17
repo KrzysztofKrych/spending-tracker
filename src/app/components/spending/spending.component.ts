@@ -6,27 +6,28 @@ import { Spending } from 'src/app/modules/spending.module';
 @Component({
   selector: 'app-spending',
   templateUrl: './spending.component.html',
-  styleUrls: ['./spending.component.scss']
+  styleUrls: ['./spending.component.scss'],
 })
 export class SpendingComponent implements OnInit {
   spending: Spending;
   showForm: boolean;
   constructor(private store: Store<AppState>) {
-    this.store.select('spending').subscribe(spending => this.spending = spending);
+    this.store
+      .select('spending')
+      .subscribe((spending) => (this.spending = spending));
   }
 
-  addIncome(event: MouseEvent){
+  addIncome(event: MouseEvent) {
     this.showForm = true;
   }
-  addExpense(event: MouseEvent){
+  addExpense(event: MouseEvent) {
     this.showForm = true;
   }
-  handleCloseForm(){
+  handleCloseForm() {
     this.showForm = false;
   }
-  handleSaveForm(){
+  handleSaveForm() {
     this.showForm = false;
   }
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }
